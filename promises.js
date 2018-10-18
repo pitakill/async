@@ -3,5 +3,19 @@ const division = (a, b) => new Promise((resolve, reject) => {
   resolve(a / b)
 })
 
-division(1,2).then(console.log).catch(console.error)
+const getNumber = () => 10000
+
+async function pintar() {
+  try {
+    const response = await division(1,2)
+    const number = await getNumber()
+    const suma = response + number
+    console.log(suma)
+  } catch (e) {
+    console.error("Tuvimos un error: ", e)
+  }
+}
+
+pintar()
+
 division(1,0).then(console.log).catch(console.error)
